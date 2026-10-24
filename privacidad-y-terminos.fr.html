@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quani · Confidentialité et Conditions d'Utilisation</title>
+  <meta name="description" content="Quani · Confidentialité et Conditions d'Utilisation — Quani · Finanzas Modernas. Bundle ID: com.quani.app." />
+  <meta name="robots" content="index, follow" />
+  <link rel="alternate" hreflang="es" href="privacidad-y-terminos.html" />
+  <link rel="alternate" hreflang="en" href="privacidad-y-terminos.en.html" />
+  <link rel="alternate" hreflang="pt" href="privacidad-y-terminos.pt.html" />
+  <link rel="alternate" hreflang="fr" href="privacidad-y-terminos.fr.html" />
+  <link rel="alternate" hreflang="de" href="privacidad-y-terminos.de.html" />
+  <link rel="alternate" hreflang="it" href="privacidad-y-terminos.it.html" />
+  <link rel="alternate" hreflang="zh" href="privacidad-y-terminos.zh.html" />
+  <link rel="alternate" hreflang="ja" href="privacidad-y-terminos.ja.html" />
+  <style>
+:root {
+      --bg-deep: #050811;
+      --bg-navy: #0a0e17;
+      --glass-surface: rgba(18, 26, 44, 0.56);
+      --glass-surface-strong: rgba(24, 35, 58, 0.72);
+      --glass-border: rgba(255, 255, 255, 0.13);
+      --glass-highlight: rgba(255, 255, 255, 0.28);
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --text-muted: #8b9bb4;
+      --cyan: #38bdf8;
+      --amber: #fbbf24;
+      --violet: #a78bfa;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+      background-color: var(--bg-deep);
+      color: var(--text-primary);
+      line-height: 1.65;
+      overflow-x: hidden;
+      position: relative;
+      padding: 48px 20px 96px;
+    }
+
+    /* Esferas de luz ambiental estilo Liquid Glass / Aurora de Quani */
+    .ambient-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.20) 0%, transparent 52%),
+        radial-gradient(circle at 12% 28%, rgba(99, 102, 241, 0.16) 0%, transparent 46%),
+        radial-gradient(circle at 88% 62%, rgba(168, 85, 247, 0.14) 0%, transparent 48%),
+        radial-gradient(circle at 50% 100%, rgba(14, 165, 233, 0.12) 0%, transparent 55%),
+        linear-gradient(180deg, #091122 0%, #060913 55%, #04060c 100%);
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* Cabecera minimalista con el emblema Q de cristal */
+    .hero {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .logo-ring {
+      width: 84px;
+      height: 84px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
+      border: 1px solid var(--glass-border);
+      box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.55),
+        0 0 32px rgba(56, 189, 248, 0.18),
+        inset 0 1px 0 var(--glass-highlight);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-ring svg {
+      width: 52px;
+      height: 52px;
+      filter: drop-shadow(0 2px 10px rgba(56, 189, 248, 0.45));
+    }
+
+    .kicker-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      color: var(--cyan);
+      background: rgba(56, 189, 248, 0.10);
+      border: 1px solid rgba(56, 189, 248, 0.26);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(26px, 4.5vw, 36px);
+      font-weight: 700;
+      letter-spacing: -0.7px;
+      margin: 0 0 8px;
+      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-meta {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin: 0;
+    }
+
+    /* Barra de navegación de cristal estilo ModeSlider de Quani */
+    .nav-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      padding: 6px;
+      margin: 0 auto 32px;
+      max-width: fit-content;
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.62);
+      border: 1px solid var(--glass-border);
+      box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(24px) saturate(170%);
+      -webkit-backdrop-filter: blur(24px) saturate(170%);
+    }
+
+    .nav-pill {
+      padding: 8px 16px;
+      border-radius: 13px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .nav-pill:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Tarjetas Liquid Glass */
+    .glass-card {
+      position: relative;
+      background: linear-gradient(165deg, rgba(30, 43, 70, 0.54) 0%, rgba(13, 20, 36, 0.64) 100%);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 28px 30px;
+      margin-bottom: 22px;
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 var(--glass-highlight);
+      backdrop-filter: blur(28px) saturate(175%);
+      -webkit-backdrop-filter: blur(28px) saturate(175%);
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 24px;
+      right: 24px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+      pointer-events: none;
+    }
+
+    .section-tag {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      margin: 0 0 14px;
+      color: var(--text-primary);
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03));
+      margin: 18px 0;
+    }
+
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 18px 0 6px;
+      color: var(--cyan);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    p, li {
+      color: var(--text-secondary);
+      font-size: 14.5px;
+      margin: 0 0 10px;
+    }
+
+    ul {
+      margin: 8px 0 4px;
+      padding-left: 18px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* Cuadrícula de características de privacidad */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .mini-glass {
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 16px;
+      padding: 16px 18px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    }
+
+    .mini-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .mini-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .tone-amber { color: var(--amber); }
+    .tone-cyan { color: var(--cyan); }
+
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 12.5px;
+      margin-top: 44px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Selector de idioma */
+    .lang-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px;
+      margin: -14px auto 30px;
+    }
+
+    .lang-pill {
+      padding: 6px 13px;
+      border-radius: 11px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    .lang-pill:hover {
+      color: var(--text-primary);
+      border-color: var(--glass-border);
+    }
+
+    .lang-pill[aria-current="page"] {
+      color: var(--cyan);
+      background: rgba(56, 189, 248, 0.10);
+      border-color: rgba(56, 189, 248, 0.28);
+    }
+
+    /* Bloque de advertencia sobre red */
+    .net-note {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      background: rgba(251, 191, 36, 0.07);
+      border: 1px solid rgba(251, 191, 36, 0.22);
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-top: 16px;
+    }
+
+    .net-note .net-icon {
+      flex: 0 0 auto;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .net-note .net-body {
+      flex: 1 1 auto;
+    }
+
+    .net-note p {
+      margin: 0 0 6px;
+    }
+
+    .net-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    .net-note strong {
+      color: var(--amber);
+    }
+
+    .lang-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .lang-list li {
+      position: relative;
+      padding-left: 22px;
+    }
+
+    .lang-list li::before {
+      content: "▸";
+      position: absolute;
+      left: 4px;
+      color: var(--cyan);
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-canvas"></div>
+
+  <main class="shell">
+    <header class="hero">
+      <div class="logo-ring" aria-hidden="true">
+        <svg viewBox="0 0 64 64" fill="none">
+          <defs>
+            <linearGradient id="qRingOuter" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#e0f2fe" />
+              <stop offset="45%" stop-color="#38bdf8" />
+              <stop offset="80%" stop-color="#818cf8" />
+              <stop offset="100%" stop-color="#f472b6" />
+            </linearGradient>
+            <linearGradient id="qRingInner" x1="16" y1="14" x2="48" y2="50" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#bae6fd" />
+              <stop offset="60%" stop-color="#38bdf8" />
+              <stop offset="100%" stop-color="#a78bfa" />
+            </linearGradient>
+            <radialGradient id="qSphere" cx="40%" cy="35%" r="65%">
+              <stop offset="0%" stop-color="#ffffff" />
+              <stop offset="45%" stop-color="#7dd3fc" />
+              <stop offset="100%" stop-color="#1e3a8a" />
+            </radialGradient>
+          </defs>
+          <circle cx="30" cy="30" r="23" stroke="url(#qRingOuter)" stroke-width="4.2" />
+          <circle cx="30" cy="30" r="15.5" stroke="url(#qRingInner)" stroke-width="3.6" stroke-opacity="0.92" />
+          <circle cx="30" cy="30" r="5.6" fill="url(#qSphere)" />
+          <path d="M40.5 40.5 L54.5 54.5" stroke="url(#qRingOuter)" stroke-width="5.2" stroke-linecap="round" />
+        </svg>
+      </div>
+      <span class="kicker-pill">Quani · Finanzas Modernas</span>
+      <h1>Confidentialité et Conditions d'Utilisation</h1>
+      <p class="hero-meta">En vigueur : 21 octobre 2026 · Plateforme : iPhone (iOS) · Bundle ID : com.quani.app</p>
+    </header>
+
+    <nav class="lang-bar" aria-label="Idioma / Language">
+      <a class="lang-pill" href="privacidad-y-terminos.html">Español</a>
+      <a class="lang-pill" href="privacidad-y-terminos.en.html">English</a>
+      <a class="lang-pill" href="privacidad-y-terminos.pt.html">Português</a>
+      <a class="lang-pill" href="privacidad-y-terminos.fr.html" aria-current="page">Français</a>
+      <a class="lang-pill" href="privacidad-y-terminos.de.html">Deutsch</a>
+      <a class="lang-pill" href="privacidad-y-terminos.it.html">Italiano</a>
+      <a class="lang-pill" href="privacidad-y-terminos.zh.html">中文</a>
+      <a class="lang-pill" href="privacidad-y-terminos.ja.html">日本語</a>
+    </nav>
+
+    <nav class="nav-bar" aria-label="Secciones legales">
+      <a class="nav-pill" href="#privacidad">1. Confidentialité locale</a>
+      <a class="nav-pill" href="#ia">2. Moteur comptable et IA</a>
+      <a class="nav-pill" href="#red">3. Connexions réseau</a>
+      <a class="nav-pill" href="#permisos">4. Autorisations iOS</a>
+      <a class="nav-pill" href="#terminos">5. Conditions d'utilisation</a>
+      <a class="nav-pill" href="#creditos">6. Auteur et contact</a>
+    </nav>
+
+    <section class="glass-card" id="privacidad">
+      <span class="section-tag">Architecture hors ligne</span>
+      <h2>1. Politique de confidentialité : vos finances restent sur votre iPhone</h2>
+      <p>
+        Quani a été conçu selon un principe strict : votre patrimoine, vos comptes et vos habitudes financières n'appartiennent qu'à vous. Quani n'a aucun serveur propre, n'exige aucune inscription par e-mail et ne contient aucun traceur publicitaire.
+      </p>
+      <p>
+        Quani est conçu pour fonctionner hors ligne : le moteur comptable, le conseiller, la lecture des tickets et tous les calculs de budget s'exécutent entièrement dans l'appareil. La'application peut néanmoins établir une seule connexion réseau, toujours sous votre contrôle et décrites en détail à la section 3. Cette connexion ne transmet pas d'information sur vos comptes, vos opérations ou vos budgets.
+      </p>
+      <div class="grid-2">
+        <div class="mini-glass">
+          <div class="mini-title tone-cyan">Base SQLite par profil</div>
+          <p class="mini-desc">
+            Vos comptes (débit, crédit, actifs et passifs), vos opérations filtrées par période, vos soldes cumulés, vos budgets, vos dossiers, vos raccourcis et vos photographies sont stockés localement sur votre appareil.
+          </p>
+        </div>
+        <div class="mini-glass">
+          <div class="mini-title tone-cyan">Sécurité dans le Trousseau (Keychain)</div>
+          <p class="mini-desc">
+            Le code PIN de chaque profil est conservé chiffré dans le Trousseau natif d'iOS et n'apparaît jamais en clair dans les sauvegardes exportées.
+          </p>
+        </div>
+        <div class="mini-glass">
+          <div class="mini-title tone-cyan">Aucune analyse d'usage ni profil publicitaire</div>
+          <p class="mini-desc">
+            Quani n'intègre aucun SDK d'analyse, ne construit aucun profil publicitaire et ne mesure pas votre utilisation de l'application.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="glass-card" id="ia">
+      <span class="section-tag">Intelligence financière privée</span>
+      <h2>2. Moteur déterministe (Conseiller) et Intelligence sur l'appareil (ConseillerIA)</h2>
+      <p>
+        Toutes les questions, diagnostics de liquidité, comparaisons annuelles, plans d'épargne et lectures de tickets sont traités dans votre téléphone, sans transmettre vos relevés à des services externes :
+      </p>
+      <div class="divider"></div>
+      <h3>2.1 Moteur interne déterministe (Conseiller)</h3>
+      <p>
+        C'est le moteur principal de Quani et il fonctionne sur tous les iPhone, y compris les plus anciens. Il calcule au centime vos soldes réels, la dette accumulée après chaque opération, les projections du calendrier et les priorités financières directement sur votre base locale. Aucun modèle génératif ne peut altérer ni inventer de chiffres comptables.
+      </p>
+      <h3>2.2 ConseillerIA selon la génération de votre iPhone</h3>
+      <p>
+        Le ConseillerIA est la couche de conversation facultative, et son fonctionnement dépend de l'appareil que vous possédez :
+      </p>
+      <ul class="lang-list">
+        <li>iPhone 15 Pro et modèles ultérieurs, avec iOS 26 ou ultérieur et Apple Intelligence activé : le ConseillerIA converse avec le modèle intégré à iOS, sans téléchargement supplémentaire (0 Mo). Le modèle s'exécute sur votre appareil et travaille avec vos propres chiffres et le contexte de votre profil.</li>
+        <li>Sur tous les autres iPhone, ou avec Apple Intelligence désactivé : le conseiller répond avec le moteur financier déterministe de Quani et la photo d'un ticket reste sur votre téléphone pour que vous saisissiez le total. Aucun modèle, d'aucune sorte, n'est téléchargé.</li>
+        <li>Dans tous les cas, si le modèle n'est pas disponible, le Conseiller interne déterministe répond avec les mêmes calculs et les mêmes chiffres.</li>
+      </ul>
+      <div class="divider"></div>
+      <p class="mini-desc">
+        Les tickets sont lus avec le modèle de vision embarqué lorsque celui-ci est disponible. L'image n'est jamais encodée en base64 ni envoyée à un service : elle est ouverte directement comme fichier local.
+      </p>
+    </section>
+
+    <section class="glass-card" id="red">
+      <span class="section-tag">Transparence du réseau</span>
+      <h2>3. Connexions réseau : une seule</h2>
+      <p>
+        Quani n'a aucun serveur propre. Voici la seule connexion que l'application peut établir, et elles n'ont lieu que si vous le décidez :
+      </p>
+        <div class="net-note">
+          <div class="net-icon">◆</div>
+          <div class="net-body">
+            <p><strong>Catalogue des devises — api.frankfurter.dev</strong></p>
+            <p>Lorsque vous consultez la liste des devises ou un taux de change, l'application demande à ce service public la liste des devises disponibles ou le taux du jour. La requête n'inclut aucune information sur vos comptes, vos opérations, vos photographies ni aucun identifiant d'appareil.</p>
+          </div>
+        </div>
+
+      <div class="divider"></div>
+      <ul>
+        <li>La dictée utilise le moteur de reconnaissance vocale d'iOS. Selon la langue et les réglages de votre iPhone, le système peut reconnaître la voix sur l'appareil ou recourir aux serveurs d'Apple. Dans les deux cas, ce que vous dictez devient un brouillon modifiable dans Quani, et l'application ne le relaie pas d'elle-même.</li>
+        <li>Les rappels de paiements et d'engagements sont programmés localement sur le téléphone. Il n'y a pas de serveur de notifications push.</li>
+        <li>Aucune donnée financière, photographie, conversation avec le conseiller, identifiant d'appareil ou donnée de localisation n'est envoyée à un service.</li>
+      </ul>
+    </section>
+
+    <section class="glass-card" id="permisos">
+      <span class="section-tag">Transparence du système</span>
+      <h2>4. Utilisation des autorisations iOS</h2>
+      <ul>
+        <li><strong>Microphone et reconnaissance vocale :</strong> Ils ne s'activent que lorsque vous utilisez la dictée manuelle ou double-cliquez sur le calendrier pour transformer votre voix en brouillons modifiables d'opérations ou de budgets.</li>
+        <li><strong>Appareil photo et photothèque :</strong> Ils ne sont utilisés que lorsque vous choisissez de photographier un ticket, de joindre des images à une opération ou de personnaliser les icônes de vos catégories et profils.</li>
+        <li><strong>Face ID :</strong> Il est entièrement délégué au système d'exploitation iOS pour déverrouiller votre profil local ; Quani n'accède jamais aux données biométriques.</li>
+        <li><strong>Notifications locales :</strong> Elles sont programmées sur l'appareil lui-même pour vous rappeler les paiements et les engagements planifiés.</li>
+      </ul>
+    </section>
+
+    <section class="glass-card" id="terminos">
+      <span class="section-tag">Conditions du service</span>
+      <h2>5. Conditions d'utilisation</h2>
+      <h3>5.1 Caractère informatif et organisationnel</h3>
+      <p>
+        Quani, ses graphiques budgétaires, ses relevés par période et les suggestions du Conseiller et du ConseillerIA sont des outils d'organisation personnelle et d'information. Ils ne remplacent en aucun cas et ne représentent pas un conseil financier, comptable, fiscal, d'investissement ou juridique certifié.
+      </p>
+      <h3>5.2 Les sauvegardes relèvent de votre responsabilité</h3>
+      <p>
+        N'existant aucun serveur central ne conservant vos informations financières, vous devez conserver vos propres sauvegardes externes à l'aide de l'export JSON/CSV dans Plus → Sauvegarde avant de changer ou de restaurer votre téléphone.
+      </p>
+    </section>
+
+    <section class="glass-card" id="creditos">
+      <span class="section-tag">Propriété intellectuelle et assistance</span>
+      <h2>6. Auteur, licences et contact</h2>
+      <p>
+        Quani · Finances Modernes, son interface Liquid Glass, son architecture comptable, la conception de ses icônes de cristal et son code original sont un produit et la propriété de La Suite Musical.
+      </p>
+      <div class="divider"></div>
+      <p class="mini-desc">
+        Apple Intelligence est une fonction d'Apple Inc., soumise à ses propres conditions et disponible uniquement sur les modèles d'iPhone compatibles. Quani n'inclut ni ne télécharge aucun modèle de langage : lorsque le conseiller utilise le modèle du système, il le fait dans votre téléphone.
+      </p>
+      <div class="divider"></div>
+        <p class="mini-desc"><strong>Contact :</strong> <a href="mailto:soporte.quani@gmail.com">soporte.quani@gmail.com</a></p>
+        <p class="mini-desc">Pour toute question sur cette politique, sur le fonctionnement de l'application ou sur vos données, vous pouvez nous écrire. Nous répondons dans la langue de votre message.</p>
+    </section>
+
+    <footer>
+      © 2026 La Suite Musical · Quani pour iPhone
+    </footer>
+  </main>
+</body>
+</html>
