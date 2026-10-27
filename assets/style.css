@@ -41,7 +41,9 @@ body {
   /* Rebasa la pantalla por arriba y por abajo: sin franjas negras en la barra de estado ni bajo la barra de Safari. */
   position: fixed; top: -140px; bottom: -140px; left: 0; right: 0; z-index: 0; pointer-events: none;
   background:
-    radial-gradient(60% 38% at 50% 9%, rgba(86, 140, 255, 0.26), transparent 70%),
+    /* El resplandor del logo queda a unos 320 px del borde de la ventana (140 px de sobrante + 180): arriba,
+       bajo la barra de estado, el fondo es del mismo azul noche liso que Safari pinta ahí, sin franja. */
+    radial-gradient(ellipse 70vw 340px at 50% 460px, rgba(86, 140, 255, 0.26), transparent 70%),
     radial-gradient(42% 36% at 100% 38%, rgba(130, 100, 255, 0.11), transparent 72%),
     radial-gradient(46% 38% at 0% 78%, rgba(40, 170, 255, 0.09), transparent 72%),
     linear-gradient(180deg, #0a1224 0%, #070b18 46%, #060913 100%);
