@@ -1,562 +1,67 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Quani · 隐私政策与使用条款</title>
-  <meta name="description" content="Quani · 隐私政策与使用条款 — Quani · Finanzas Modernas. Bundle ID: com.quani.app." />
-  <meta name="robots" content="index, follow" />
-  <link rel="alternate" hreflang="es" href="privacidad-y-terminos.html" />
-  <link rel="alternate" hreflang="en" href="privacidad-y-terminos.en.html" />
-  <link rel="alternate" hreflang="pt" href="privacidad-y-terminos.pt.html" />
-  <link rel="alternate" hreflang="fr" href="privacidad-y-terminos.fr.html" />
-  <link rel="alternate" hreflang="de" href="privacidad-y-terminos.de.html" />
-  <link rel="alternate" hreflang="it" href="privacidad-y-terminos.it.html" />
-  <link rel="alternate" hreflang="zh" href="privacidad-y-terminos.zh.html" />
-  <link rel="alternate" hreflang="ja" href="privacidad-y-terminos.ja.html" />
-  <style>
-:root {
-      --bg-deep: #050811;
-      --bg-navy: #0a0e17;
-      --glass-surface: rgba(18, 26, 44, 0.56);
-      --glass-surface-strong: rgba(24, 35, 58, 0.72);
-      --glass-border: rgba(255, 255, 255, 0.13);
-      --glass-highlight: rgba(255, 255, 255, 0.28);
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --text-muted: #8b9bb4;
-      --cyan: #38bdf8;
-      --amber: #fbbf24;
-      --violet: #a78bfa;
-    }
-
-    * {
-      box-sizing: border-box;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
-      background-color: var(--bg-deep);
-      color: var(--text-primary);
-      line-height: 1.65;
-      overflow-x: hidden;
-      position: relative;
-      padding: 48px 20px 96px;
-    }
-
-    /* Esferas de luz ambiental estilo Liquid Glass / Aurora de Quani */
-    .ambient-canvas {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.20) 0%, transparent 52%),
-        radial-gradient(circle at 12% 28%, rgba(99, 102, 241, 0.16) 0%, transparent 46%),
-        radial-gradient(circle at 88% 62%, rgba(168, 85, 247, 0.14) 0%, transparent 48%),
-        radial-gradient(circle at 50% 100%, rgba(14, 165, 233, 0.12) 0%, transparent 55%),
-        linear-gradient(180deg, #091122 0%, #060913 55%, #04060c 100%);
-    }
-
-    .shell {
-      position: relative;
-      z-index: 1;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    /* Cabecera minimalista con el emblema Q de cristal */
-    .hero {
-      text-align: center;
-      margin-bottom: 36px;
-    }
-
-    .logo-ring {
-      width: 84px;
-      height: 84px;
-      margin: 0 auto 18px;
-      border-radius: 24px;
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
-      border: 1px solid var(--glass-border);
-      box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.55),
-        0 0 32px rgba(56, 189, 248, 0.18),
-        inset 0 1px 0 var(--glass-highlight);
-      backdrop-filter: blur(24px) saturate(180%);
-      -webkit-backdrop-filter: blur(24px) saturate(180%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .logo-ring svg {
-      width: 52px;
-      height: 52px;
-      filter: drop-shadow(0 2px 10px rgba(56, 189, 248, 0.45));
-    }
-
-    .kicker-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 14px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.9px;
-      text-transform: uppercase;
-      color: var(--cyan);
-      background: rgba(56, 189, 248, 0.10);
-      border: 1px solid rgba(56, 189, 248, 0.26);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
-      margin-bottom: 14px;
-    }
-
-    h1 {
-      font-size: clamp(26px, 4.5vw, 36px);
-      font-weight: 700;
-      letter-spacing: -0.7px;
-      margin: 0 0 8px;
-      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-meta {
-      color: var(--text-muted);
-      font-size: 14px;
-      margin: 0;
-    }
-
-    /* Barra de navegación de cristal estilo ModeSlider de Quani */
-    .nav-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      padding: 6px;
-      margin: 0 auto 32px;
-      max-width: fit-content;
-      border-radius: 18px;
-      background: rgba(15, 23, 42, 0.62);
-      border: 1px solid var(--glass-border);
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.16);
-      backdrop-filter: blur(24px) saturate(170%);
-      -webkit-backdrop-filter: blur(24px) saturate(170%);
-    }
-
-    .nav-pill {
-      padding: 8px 16px;
-      border-radius: 13px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .nav-pill:hover {
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    /* Tarjetas Liquid Glass */
-    .glass-card {
-      position: relative;
-      background: linear-gradient(165deg, rgba(30, 43, 70, 0.54) 0%, rgba(13, 20, 36, 0.64) 100%);
-      border: 1px solid var(--glass-border);
-      border-radius: 24px;
-      padding: 28px 30px;
-      margin-bottom: 22px;
-      box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.45),
-        inset 0 1px 0 var(--glass-highlight);
-      backdrop-filter: blur(28px) saturate(175%);
-      -webkit-backdrop-filter: blur(28px) saturate(175%);
-      overflow: hidden;
-    }
-
-    .glass-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 24px;
-      right: 24px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
-      pointer-events: none;
-    }
-
-    .section-tag {
-      display: block;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.9px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    h2 {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      margin: 0 0 14px;
-      color: var(--text-primary);
-    }
-
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03));
-      margin: 18px 0;
-    }
-
-    h3 {
-      font-size: 15px;
-      font-weight: 600;
-      margin: 18px 0 6px;
-      color: var(--cyan);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    p, li {
-      color: var(--text-secondary);
-      font-size: 14.5px;
-      margin: 0 0 10px;
-    }
-
-    ul {
-      margin: 8px 0 4px;
-      padding-left: 18px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    strong {
-      color: #ffffff;
-      font-weight: 600;
-    }
-
-    /* Cuadrícula de características de privacidad */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-      margin-top: 14px;
-    }
-
-    .mini-glass {
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 16px;
-      padding: 16px 18px;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
-    }
-
-    .mini-title {
-      font-size: 13.5px;
-      font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 4px;
-    }
-
-    .mini-desc {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin: 0;
-    }
-
-    .tone-amber { color: var(--amber); }
-    .tone-cyan { color: var(--cyan); }
-
-    footer {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 12.5px;
-      margin-top: 44px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.07);
-    }
-
-    a {
-      color: var(--cyan);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Selector de idioma */
-    .lang-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 6px;
-      margin: -14px auto 30px;
-    }
-
-    .lang-pill {
-      padding: 6px 13px;
-      border-radius: 11px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-decoration: none;
-      border: 1px solid transparent;
-      transition: all 0.2s ease;
-    }
-
-    .lang-pill:hover {
-      color: var(--text-primary);
-      border-color: var(--glass-border);
-    }
-
-    .lang-pill[aria-current="page"] {
-      color: var(--cyan);
-      background: rgba(56, 189, 248, 0.10);
-      border-color: rgba(56, 189, 248, 0.28);
-    }
-
-    /* Bloque de advertencia sobre red */
-    .net-note {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      background: rgba(251, 191, 36, 0.07);
-      border: 1px solid rgba(251, 191, 36, 0.22);
-      border-radius: 16px;
-      padding: 16px 18px;
-      margin-top: 16px;
-    }
-
-    .net-note .net-icon {
-      flex: 0 0 auto;
-      font-size: 18px;
-      line-height: 1.5;
-    }
-
-    .net-note .net-body {
-      flex: 1 1 auto;
-    }
-
-    .net-note p {
-      margin: 0 0 6px;
-    }
-
-    .net-note p:last-child {
-      margin-bottom: 0;
-    }
-
-    .net-note strong {
-      color: var(--amber);
-    }
-
-    .lang-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .lang-list li {
-      position: relative;
-      padding-left: 22px;
-    }
-
-    .lang-list li::before {
-      content: "▸";
-      position: absolute;
-      left: 4px;
-      color: var(--cyan);
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quani · 隐私政策与使用条款</title>
+<meta name="description" content="Quani · Finanzas Modernas 的隐私政策与使用条款。这款个人理财 App 把一切都保存在你的 iPhone 上。">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#04060c">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://lasuitemusicalrm-ui.github.io/quani-legal/privacidad-y-terminos.zh.html">
+<link rel="alternate" hreflang="es" href="https://lasuitemusicalrm-ui.github.io/quani-legal/privacidad-y-terminos.html">
+<link rel="alternate" hreflang="en" href="https://lasuitemusicalrm-ui.github.io/quani-legal/privacidad-y-terminos.en.html">
+<link rel="alternate" hreflang="pt" href="https://lasuitemusicalrm-ui.github.io/quani-legal/privacidad-y-terminos.pt.html">
+<link rel="alternate" hreflang="fr" href="https://lasuitemusicalrm-ui.github.io/quani-legal/privacidad-y-terminos.fr.html">
+<link rel="alternate" hreflang="de" href="https://lasuitemusicalrm-ui.github.io/quani-legal/privacidad-y-terminos.de.html">
+<link rel="alternate" hreflang="it" href="https://lasuitemusicalrm-ui.github.io/quani-legal/privacidad-y-terminos.it.html">
+<link rel="alternate" hreflang="zh" href="https://lasuitemusicalrm-ui.github.io/quani-legal/privacidad-y-terminos.zh.html">
+<link rel="alternate" hreflang="ja" href="https://lasuitemusicalrm-ui.github.io/quani-legal/privacidad-y-terminos.ja.html">
+<link rel="alternate" hreflang="x-default" href="https://lasuitemusicalrm-ui.github.io/quani-legal/privacidad-y-terminos.html">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Quani · 隐私政策与使用条款">
+<meta property="og:description" content="Quani · Finanzas Modernas 的隐私政策与使用条款。这款个人理财 App 把一切都保存在你的 iPhone 上。">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://lasuitemusicalrm-ui.github.io/quani-legal/assets/quani-logo.png">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <div class="ambient-canvas"></div>
-
-  <main class="shell">
-    <header class="hero">
-      <div class="logo-ring" aria-hidden="true">
-        <svg viewBox="0 0 64 64" fill="none">
-          <defs>
-            <linearGradient id="qRingOuter" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#e0f2fe" />
-              <stop offset="45%" stop-color="#38bdf8" />
-              <stop offset="80%" stop-color="#818cf8" />
-              <stop offset="100%" stop-color="#f472b6" />
-            </linearGradient>
-            <linearGradient id="qRingInner" x1="16" y1="14" x2="48" y2="50" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#bae6fd" />
-              <stop offset="60%" stop-color="#38bdf8" />
-              <stop offset="100%" stop-color="#a78bfa" />
-            </linearGradient>
-            <radialGradient id="qSphere" cx="40%" cy="35%" r="65%">
-              <stop offset="0%" stop-color="#ffffff" />
-              <stop offset="45%" stop-color="#7dd3fc" />
-              <stop offset="100%" stop-color="#1e3a8a" />
-            </radialGradient>
-          </defs>
-          <circle cx="30" cy="30" r="23" stroke="url(#qRingOuter)" stroke-width="4.2" />
-          <circle cx="30" cy="30" r="15.5" stroke="url(#qRingInner)" stroke-width="3.6" stroke-opacity="0.92" />
-          <circle cx="30" cy="30" r="5.6" fill="url(#qSphere)" />
-          <path d="M40.5 40.5 L54.5 54.5" stroke="url(#qRingOuter)" stroke-width="5.2" stroke-linecap="round" />
-        </svg>
-      </div>
-      <span class="kicker-pill">Quani · Finanzas Modernas</span>
-      <h1>隐私政策与使用条款</h1>
-      <p class="hero-meta">生效日期：2026 年 10 月 21 日 · 平台：iPhone（iOS）· Bundle ID：com.quani.app</p>
-    </header>
-
-    <nav class="lang-bar" aria-label="Idioma / Language">
-      <a class="lang-pill" href="privacidad-y-terminos.html">Español</a>
-      <a class="lang-pill" href="privacidad-y-terminos.en.html">English</a>
-      <a class="lang-pill" href="privacidad-y-terminos.pt.html">Português</a>
-      <a class="lang-pill" href="privacidad-y-terminos.fr.html">Français</a>
-      <a class="lang-pill" href="privacidad-y-terminos.de.html">Deutsch</a>
-      <a class="lang-pill" href="privacidad-y-terminos.it.html">Italiano</a>
-      <a class="lang-pill" href="privacidad-y-terminos.zh.html" aria-current="page">中文</a>
-      <a class="lang-pill" href="privacidad-y-terminos.ja.html">日本語</a>
-    </nav>
-
-    <nav class="nav-bar" aria-label="Secciones legales">
-      <a class="nav-pill" href="#privacidad">1. 本地隐私</a>
-      <a class="nav-pill" href="#ia">2. 记账引擎与人工智能</a>
-      <a class="nav-pill" href="#red">3. 网络连接</a>
-      <a class="nav-pill" href="#permisos">4. iOS 权限</a>
-      <a class="nav-pill" href="#terminos">5. 使用条款</a>
-      <a class="nav-pill" href="#creditos">6. 作者与联系方式</a>
-    </nav>
-
-    <section class="glass-card" id="privacidad">
-      <span class="section-tag">离线优先架构</span>
-      <h2>1. 隐私政策：你的财务数据只留在你的 iPhone 上</h2>
-      <p>
-        Quani 遵循一条严格的原则：你的资产、你的账户和你的理财习惯只属于你自己。Quani 没有自有服务器，不需要邮箱注册，也不包含任何广告追踪器。
-      </p>
-      <p>
-        Quani 的设计初衷是离线可用：记账引擎、顾问、票据识别以及全部预算计算都在设备内完成。不过，应用确实会发起一次网络连接，始终由你控制，并在第 3 节中详细说明。这次连接不会传输与你的账户、交易或预算有关的信息。
-      </p>
-      <div class="grid-2">
-        <div class="mini-glass">
-          <div class="mini-title tone-cyan">按档案独立存储的 SQLite 数据库</div>
-          <p class="mini-desc">
-            你的账户（借记、贷记、资产与负债）、按日期范围筛选的交易、累计余额、预算、文件夹、快捷操作和照片，全部保存在你的设备本地。
-          </p>
-        </div>
-        <div class="mini-glass">
-          <div class="mini-title tone-cyan">钥匙串（Keychain）安全存储</div>
-          <p class="mini-desc">
-            每个档案的 PIN 码以加密形式保存在 iOS 原生钥匙串中，导出的备份文件里永远不会出现明文。
-          </p>
-        </div>
-        <div class="mini-glass">
-          <div class="mini-title tone-cyan">没有行为分析，没有广告画像</div>
-          <p class="mini-desc">
-            Quani 不集成任何分析 SDK，不构建广告画像，也不统计你如何使用应用。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="glass-card" id="ia">
-      <span class="section-tag">私密财务智能</span>
-      <h2>2. 确定性引擎（顾问）与设备端智能（顾问 AI）</h2>
-      <p>
-        所有提问、流动性诊断、年度对比、储蓄计划和票据识别都在你的手机内处理，不会把你的账单发送到外部服务：
-      </p>
-      <div class="divider"></div>
-      <h3>2.1 内置确定性引擎（顾问）</h3>
-      <p>
-        这是 Quani 的核心引擎，在包括最老机型在内的所有 iPhone 上都能运行。它直接在你的本地数据库上精确到分地计算真实余额、每笔交易后累积的负债、日历预测和财务优先事项。没有任何生成式模型能够篡改或编造会计数字。
-      </p>
-      <h3>2.2 顾问 AI 随你的 iPhone 世代而不同</h3>
-      <p>
-        顾问 AI 是可选的对话层，它的工作方式取决于你拥有的设备：
-      </p>
-      <ul class="lang-list">
-        <li>iPhone 15 Pro 及更新机型，运行 iOS 26 或更新系统并开启 Apple Intelligence：顾问 AI 直接与 iOS 内置的模型对话，无需额外下载（0 MB）。模型在你的设备上运行，依据你自己的数字和档案上下文作答。</li>
-        <li>在其他 iPhone 上，或未开启 Apple Intelligence 时：顾问使用 Quani 的确定性财务引擎回答，票据照片留在你的手机里，由你手动填写金额。不会下载任何类型的模型。</li>
-        <li>无论哪种情况，如果模型不可用，内置的确定性顾问会用完全相同的计算和数字回答你。</li>
-      </ul>
-      <div class="divider"></div>
-      <p class="mini-desc">
-        票据在有视觉模型时由设备端的视觉模型识别。图片绝不会以 base64 编码，也绝不发送到任何服务：它只是作为本地文件被直接打开。
-      </p>
-    </section>
-
-    <section class="glass-card" id="red">
-      <span class="section-tag">网络透明说明</span>
-      <h2>3. 网络连接：只有一次</h2>
-      <p>
-        Quani 没有自有服务器。以下是应用唯一可能发起的一次连接，而且只在你主动使用相关功能时才会发生：
-      </p>
-        <div class="net-note">
-          <div class="net-icon">◆</div>
-          <div class="net-body">
-            <p><strong>货币目录 — api.frankfurter.dev</strong></p>
-            <p>当你查询货币列表或汇率时，应用会向这个公共服务请求可用货币清单或当日汇率。该请求不包含你的账户、交易、照片信息，也不包含任何设备标识符。</p>
-          </div>
-        </div>
-
-      <div class="divider"></div>
-      <ul>
-        <li>语音输入使用 iOS 的语音识别引擎。根据你的 iPhone 语言和设置，系统可能在设备本地识别语音，也可能调用 Apple 的服务器。两种情况下，你口述的内容都会在 Quani 内变成可编辑的草稿，应用不会自行转发。</li>
-        <li>付款与承诺的提醒在手机本地安排。应用没有推送通知服务器。</li>
-        <li>任何财务数据、照片、与顾问的对话、设备标识符或位置数据都不会发送到任何服务。</li>
-      </ul>
-    </section>
-
-    <section class="glass-card" id="permisos">
-      <span class="section-tag">系统透明说明</span>
-      <h2>4. iOS 权限的使用</h2>
-      <ul>
-        <li><strong>麦克风与语音识别：</strong> 仅在你使用手动语音输入，或在日历上双击以把语音转成可编辑的交易或预算草稿时才会启用。</li>
-        <li><strong>相机与照片：</strong> 仅在你主动拍摄票据、为交易附加图片，或自定义分类与档案图标时才会使用。</li>
-        <li><strong>Face ID：</strong> 完全交由 iOS 系统解锁你的本地档案；Quani 绝不访问任何生物识别数据。</li>
-        <li><strong>本地通知：</strong> 在手机本地安排，用来提醒你即将到来的付款和计划内承诺。</li>
-      </ul>
-    </section>
-
-    <section class="glass-card" id="terminos">
-      <span class="section-tag">服务条款</span>
-      <h2>5. 使用条款</h2>
-      <h3>5.1 信息与自我整理性质</h3>
-      <p>
-        Quani、它的预算图表、分期间账单，以及顾问和顾问 AI 提供的建议，都属于个人整理与信息参考工具，在任何情况下都不能替代或代表经过认证的财务、会计、税务、投资或法律建议。
-      </p>
-      <h3>5.2 备份由你自行保管</h3>
-      <p>
-        由于没有中央服务器保存你的财务信息，在更换或恢复手机之前，你需要自行通过「更多 → 备份」中的 JSON/CSV 导出功能保留外部备份。
-      </p>
-    </section>
-
-    <section class="glass-card" id="creditos">
-      <span class="section-tag">知识产权与支持</span>
-      <h2>6. 作者、许可与联系方式</h2>
-      <p>
-        Quani · 现代财务、它的 Liquid Glass 界面、记账架构、水晶图标设计以及原始代码，均为 La Suite Musical 的产品与财产。
-      </p>
-      <div class="divider"></div>
-      <p class="mini-desc">
-        Apple Intelligence 是 Apple Inc. 的功能，受其自身条款约束，且仅在兼容的 iPhone 机型上提供。Quani 不包含也不下载任何自有语言模型：顾问使用系统模型时，一切都在你的手机内完成。
-      </p>
-      <div class="divider"></div>
-        <p class="mini-desc"><strong>联系方式：</strong> <a href="mailto:soporte.quani@gmail.com">soporte.quani@gmail.com</a></p>
-        <p class="mini-desc">如对隐私政策、应用的运作方式或你的数据有任何疑问，欢迎来信咨询，我们会用你写信所用的语言回复。</p>
-    </section>
-
-    <footer>
-      © 2026 La Suite Musical · Quani for iPhone
-    </footer>
-  </main>
+<div class="backdrop" aria-hidden="true"></div>
+<main class="page">
+<header class="brand">
+<a href="index.html" aria-label="Quani · Finanzas Modernas"><picture><source srcset="assets/quani-logo.webp" type="image/webp"><img class="mark" src="assets/quani-logo.png" width="640" height="640" alt="Quani"></picture></a>
+<p class="wordmark"><b>Quani</b><i aria-hidden="true"></i><span>Finanzas Modernas</span></p>
+</header>
+<div class="hero">
+<h1>隐私政策与使用条款</h1>
+<p class="lead">你的财务数据只存在于你的 iPhone 上。本页用直白的方式说明 Quani 保存什么、绝不收集什么，以及有哪些网络连接。</p>
+<p class="meta"><span>生效日期: 2026 年 10 月 27 日</span><span>iPhone · iOS 17 或更高版本</span></p>
+</div>
+<nav class="lang" aria-label="语言"><a href="privacidad-y-terminos.html" hreflang="es" lang="es">Español</a><a href="privacidad-y-terminos.en.html" hreflang="en" lang="en">English</a><a href="privacidad-y-terminos.pt.html" hreflang="pt" lang="pt">Português</a><a href="privacidad-y-terminos.fr.html" hreflang="fr" lang="fr">Français</a><a href="privacidad-y-terminos.de.html" hreflang="de" lang="de">Deutsch</a><a href="privacidad-y-terminos.it.html" hreflang="it" lang="it">Italiano</a><a href="privacidad-y-terminos.zh.html" hreflang="zh" lang="zh-Hans" aria-current="page">中文</a><a href="privacidad-y-terminos.ja.html" hreflang="ja" lang="ja">日本語</a></nav>
+<div class="summary"><div class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.6"/><path d="M10.5 18.5h3"/></svg><h2>你的数据留在你的 iPhone 上</h2><p>账户、交易记录、预算和照片保存在手机内部的数据库中，每个档案一个数据库。</p></div><div class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 20c.6-3.6 3.4-5.6 7-5.6s6.4 2 7 5.6"/><path d="M4 4l16 16"/></svg><h2>无需邮箱，无需密码</h2><p>Quani 不要求提供电子邮箱，也不创建用户账号。档案名称只存在于你的设备上。</p></div><div class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7.5 3v5.6c0 4.4-3 8-7.5 9.4-4.5-1.4-7.5-5-7.5-9.4V6z"/><path d="M8.8 12.2l2.2 2.2 4.2-4.4"/></svg><h2>不做任何追踪</h2><p>没有统计分析，没有广告，没有使用画像。Quani 不会收到你的财务数据。</p></div><div class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18.5a4.5 4.5 0 01-.6-8.96A6 6 0 0117.9 8.9 4.8 4.8 0 0117 18.5z"/></svg><h2>备份由你决定</h2><p>随时导出文件；如果愿意，也可以开启保存到你自己 iCloud 云盘的备份。</p></div></div>
+<div class="layout">
+<nav class="toc" aria-label="目录"><h2>目录</h2><ol><li><a href="#privacidad">隐私政策</a></li><li><a href="#copias">备份与 iCloud</a></li><li><a href="#ia">会计引擎与设备端智能</a></li><li><a href="#red">网络连接与第三方服务</a></li><li><a href="#permisos">iOS 权限的使用</a></li><li><a href="#terminos">使用条款</a></li><li><a href="#contacto">版权、许可与联系方式</a></li></ol></nav>
+<div class="stack">
+<section class="card" id="privacidad"><span class="num">01</span><h2>隐私政策：你的财务数据只在你的 iPhone 上</h2><p>Quani 遵循一条严格的原则：你的资产、账户和理财习惯只属于你。Quani 没有自己的服务器，不要求邮箱或密码，也不含任何广告追踪器。</p><p>Quani 为离线使用而设计：会计引擎、顾问、预算和所有计算都在设备内完成。App 或 iOS 偶尔会连接某项服务，这些情况已在第 4 节逐一说明，且没有任何一项会把你的账户、交易或预算发送给 Quani。</p><div class="facts"><div class="fact"><b>每个档案一个本地数据库</b><span>你的账户（借记、信用、资产和负债）、交易、余额、预算、文件夹、快捷方式和附加照片，都保存在手机内的 SQLite 数据库中，每个档案各自独立。</span></div><div class="fact"><b>只有一个档案名称</b><span>首次打开 Quani 时，你可以为档案输入一个名称。它只是本地标签：不会创建账号，也不会发送到任何服务器。输入不同的名称会创建一个新的独立档案。</span></div><div class="fact"><b>PIN 存放在钥匙串</b><span>每个档案的 PIN 加密保存在 iOS 原生钥匙串（Keychain）中，绝不会包含在备份里。</span></div><div class="fact"><b>没有统计分析</b><span>Quani 不含任何统计分析 SDK，不建立广告画像，也不衡量你如何使用 App。</span></div></div></section>
+<section class="card" id="copias"><span class="num">02</span><h2>备份与 iCloud</h2><p>由于没有中央服务器，备份掌握在你自己手中。Quani 提供三种方式：</p><ul><li><strong>App 内每日副本。</strong>Quani 会在 iPhone 上自己的空间里每天自动保存一份副本（不含照片）。如果你的 iPhone 开启了 iCloud 备份，这些副本会随之一起备份。</li><li><strong>手动导出。</strong>在 更多 → 备份 中，你可以导出包含整个档案（含照片）的 JSON 文件，或导出交易记录的 CSV，并保存到你喜欢的位置。</li><li><strong>iCloud 云盘副本（可选）。</strong>如果你在 更多 → 档案 中开启“将我的档案保存到 iCloud”，Quani 会把你的档案保存到 iCloud 云盘的“Quani”文件夹，这样在另一台 iPhone 上安装 Quani 时就能找回（“从 iCloud 恢复”）。开启前 Quani 会请你确认。</li></ul><div class="note">这些数据通过你自己的 iCloud 账户传输，受 Apple 条款约束；La Suite Musical 无法访问。副本包含你的数据和照片，但绝不包含 PIN 或安全设置。在 Quani 中删除某个档案时，它在 iCloud 中的副本也会一并删除。</div></section>
+<section class="card" id="ia"><span class="num">03</span><h2>会计引擎与设备端智能</h2><p>提问、流动性诊断、年度对比和储蓄计划都在你的手机内处理，不会把你的账单发送到外部服务。</p><h3>3.1 顾问：确定性引擎</h3><p>这是 Quani 的核心引擎，在所有受支持的 iPhone 上都能运行，离线也可使用。它直接在你的本地数据库上计算真实余额、每笔交易后累积的负债、日历预测和财务优先事项。任何生成式模型都无法篡改或编造会计数字。</p><h3>3.2 AsesorIA：取决于你的 iPhone</h3><p>AsesorIA 是可选的对话层，工作方式取决于你的设备：</p><ul><li><strong>iPhone 15 Pro 或更新机型，运行 iOS 26 或更高版本并开启 Apple Intelligence：</strong>AsesorIA 与 iOS 内置的模型对话，该模型在你的设备上运行，不会下载额外文件。数字始终来自 Quani 的引擎，而不是模型。</li><li><strong>用相机识别票据：</strong>另外还需要 iOS 27 或更高版本，并且系统提供视觉能力。图像在手机上处理，不会发送给任何服务。</li><li><strong>其他情况：</strong>顾问使用确定性引擎作答，票据照片仍保留在你的手机中，由你手动输入总额。Quani 不会下载任何语言模型。</li></ul></section>
+<section class="card" id="red"><span class="num">04</span><h2>网络连接与第三方服务</h2><p>Quani 没有自己的服务器。以下是 App（或 iOS 代表它）可能发起的全部连接，以及它们何时发生：</p><div class="rows"><div class="row"><h3>币种目录 — api.frankfurter.dev</h3><span class="when">仅在你打开币种列表时</span><p>App 向这项公共服务请求币种列表和当日汇率。只发送你的基础币种代码（例如 MXN）；与任何互联网连接一样，该服务能看到 IP 地址。不包含账户、交易、照片或设备标识符。</p></div><div class="row"><h3>语音听写 — Apple</h3><span class="when">仅在你使用听写时</span><p>使用 iOS 的语音识别。根据语言和 iPhone 的设置，系统可能在设备上识别语音，也可能使用 Apple 的服务器。你听写的内容会成为 Quani 中可编辑的草稿，App 不会转发它。</p></div><div class="row"><h3>iCloud 云盘 — Apple</h3><span class="when">仅在你开启 iCloud 备份时</span><p>你的档案通过 Apple 的服务传输到你的 iCloud 云盘。Quani 和 La Suite Musical 不会收到这些数据。</p></div><div class="row"><h3>本网站 — GitHub Pages</h3><span class="when">仅在你打开本页或支持页面时</span><p>本网站托管在 GitHub Pages，后者可能按其自身政策记录访问。本网站不使用 Cookie，也不做统计分析。</p></div></div><ul><li>付款和承诺事项的提醒在手机本地安排；没有推送通知服务器。</li><li>不会向 Quani 的任何服务发送财务数据、照片、与顾问的对话、设备标识符或位置数据。</li></ul></section>
+<section class="card" id="permisos"><span class="num">05</span><h2>iOS 权限的使用</h2><ul><li><strong>麦克风与语音识别：</strong>仅在你使用听写或在日历上双击，把语音转为可编辑的交易、预算或顾问消息草稿时启用。</li><li><strong>相机与照片：</strong>仅在你选择拍摄票据、为交易附加图片，或为档案或图标设置照片时使用。</li><li><strong>Face ID：</strong>可选，默认关闭。验证由 iOS 完成；Quani 永远不会访问生物识别数据。</li><li><strong>通知：</strong>付款和承诺事项的本地提醒，由手机自身安排。</li><li><strong>iCloud：</strong>仅在你开启 iCloud 云盘备份时使用；由你的 Apple 账户在“设置”中管理。</li></ul></section>
+<section class="card" id="terminos"><span class="num">06</span><h2>使用条款</h2><h3>6.1 信息与整理用途</h3><p>Quani、其预算图表、分期账单以及顾问和 AsesorIA 的建议，都是个人整理与信息工具。它们在任何情况下都不能替代或构成经认证的财务、会计、税务、投资或法律建议。</p><h3>6.2 备份由你自己负责</h3><p>由于没有中央服务器保存你的信息，Quani 无法找回它没有的数据。在更换、还原或清除手机或 App 之前，请自行保留副本——导出文件或 iCloud 副本。</p><h3>6.3 语言</h3><p>Quani 提供 8 种语言。西班牙语是参照语言；其他语言为测试版，正在由母语人士审校，可能存在不准确的表述。如本文档各语言版本之间存在差异，以西班牙语版本为准。</p><h3>6.4 变更</h3><p>如果本文档有变更，将在此发布并更新生效日期。</p></section>
+<section class="card" id="contacto"><span class="num">07</span><h2>版权、许可与联系方式</h2><p>Quani · Finanzas Modernas、其 Liquid Glass 界面、会计架构、玻璃质感图标和原创代码，均为 La Suite Musical 的产品和财产。</p><p>Apple Intelligence、iOS、iCloud 和 Face ID 是 Apple Inc. 的功能或商标，受其自身条款约束；Apple Intelligence 仅在兼容的 iPhone 机型上可用。汇率来自公共服务 Frankfurter。</p><hr><p><strong>联系方式：</strong><a href="mailto:soporte.quani@gmail.com">soporte.quani@gmail.com</a></p><p>如对本政策、App 的运作方式或你的数据有任何疑问，欢迎来信。我们会用你来信所用的语言回复。</p></section>
+</div>
+</div>
+</main>
+<footer>
+<nav><a href="index.html">Home</a><a href="soporte.html">Support</a><a href="mailto:soporte.quani@gmail.com">soporte.quani@gmail.com</a></nav>
+<p>© 2026 La Suite Musical · Quani for iPhone</p>
+</footer>
+<script>
+(function(){try{var links=[].slice.call(document.querySelectorAll('.toc a'));if(!links.length||!('IntersectionObserver'in window))return;
+var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.remove('on')});var a=map[e.target.id];if(a)a.classList.add('on')}})},{rootMargin:'-20% 0px -70% 0px'});
+Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el)})}catch(e){}})();
+</script>
 </body>
 </html>

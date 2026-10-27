@@ -1,399 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Quani · Soporte</title>
-<meta name="description" content="Soporte de Quani · Quani Support." />
-<style>
-:root {
-      --bg-deep: #050811;
-      --bg-navy: #0a0e17;
-      --glass-surface: rgba(18, 26, 44, 0.56);
-      --glass-surface-strong: rgba(24, 35, 58, 0.72);
-      --glass-border: rgba(255, 255, 255, 0.13);
-      --glass-highlight: rgba(255, 255, 255, 0.28);
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --text-muted: #8b9bb4;
-      --cyan: #38bdf8;
-      --amber: #fbbf24;
-      --violet: #a78bfa;
-    }
-
-    * {
-      box-sizing: border-box;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
-      background-color: var(--bg-deep);
-      color: var(--text-primary);
-      line-height: 1.65;
-      overflow-x: hidden;
-      position: relative;
-      padding: 48px 20px 96px;
-    }
-
-    /* Esferas de luz ambiental estilo Liquid Glass / Aurora de Quani */
-    .ambient-canvas {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 50% -10%, rgba(56, 189, 248, 0.20) 0%, transparent 52%),
-        radial-gradient(circle at 12% 28%, rgba(99, 102, 241, 0.16) 0%, transparent 46%),
-        radial-gradient(circle at 88% 62%, rgba(168, 85, 247, 0.14) 0%, transparent 48%),
-        radial-gradient(circle at 50% 100%, rgba(14, 165, 233, 0.12) 0%, transparent 55%),
-        linear-gradient(180deg, #091122 0%, #060913 55%, #04060c 100%);
-    }
-
-    .shell {
-      position: relative;
-      z-index: 1;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    /* Cabecera minimalista con el emblema Q de cristal */
-    .hero {
-      text-align: center;
-      margin-bottom: 36px;
-    }
-
-    .logo-ring {
-      width: 84px;
-      height: 84px;
-      margin: 0 auto 18px;
-      border-radius: 24px;
-      background: linear-gradient(145deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02));
-      border: 1px solid var(--glass-border);
-      box-shadow:
-        0 18px 40px rgba(0, 0, 0, 0.55),
-        0 0 32px rgba(56, 189, 248, 0.18),
-        inset 0 1px 0 var(--glass-highlight);
-      backdrop-filter: blur(24px) saturate(180%);
-      -webkit-backdrop-filter: blur(24px) saturate(180%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .logo-ring svg {
-      width: 52px;
-      height: 52px;
-      filter: drop-shadow(0 2px 10px rgba(56, 189, 248, 0.45));
-    }
-
-    .kicker-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 14px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.9px;
-      text-transform: uppercase;
-      color: var(--cyan);
-      background: rgba(56, 189, 248, 0.10);
-      border: 1px solid rgba(56, 189, 248, 0.26);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
-      margin-bottom: 14px;
-    }
-
-    h1 {
-      font-size: clamp(26px, 4.5vw, 36px);
-      font-weight: 700;
-      letter-spacing: -0.7px;
-      margin: 0 0 8px;
-      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-meta {
-      color: var(--text-muted);
-      font-size: 14px;
-      margin: 0;
-    }
-
-    /* Barra de navegación de cristal estilo ModeSlider de Quani */
-    .nav-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 8px;
-      padding: 6px;
-      margin: 0 auto 32px;
-      max-width: fit-content;
-      border-radius: 18px;
-      background: rgba(15, 23, 42, 0.62);
-      border: 1px solid var(--glass-border);
-      box-shadow:
-        0 10px 30px rgba(0, 0, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.16);
-      backdrop-filter: blur(24px) saturate(170%);
-      -webkit-backdrop-filter: blur(24px) saturate(170%);
-    }
-
-    .nav-pill {
-      padding: 8px 16px;
-      border-radius: 13px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .nav-pill:hover {
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    /* Tarjetas Liquid Glass */
-    .glass-card {
-      position: relative;
-      background: linear-gradient(165deg, rgba(30, 43, 70, 0.54) 0%, rgba(13, 20, 36, 0.64) 100%);
-      border: 1px solid var(--glass-border);
-      border-radius: 24px;
-      padding: 28px 30px;
-      margin-bottom: 22px;
-      box-shadow:
-        0 20px 50px rgba(0, 0, 0, 0.45),
-        inset 0 1px 0 var(--glass-highlight);
-      backdrop-filter: blur(28px) saturate(175%);
-      -webkit-backdrop-filter: blur(28px) saturate(175%);
-      overflow: hidden;
-    }
-
-    .glass-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 24px;
-      right: 24px;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
-      pointer-events: none;
-    }
-
-    .section-tag {
-      display: block;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.9px;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 6px;
-    }
-
-    h2 {
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      margin: 0 0 14px;
-      color: var(--text-primary);
-    }
-
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03));
-      margin: 18px 0;
-    }
-
-    h3 {
-      font-size: 15px;
-      font-weight: 600;
-      margin: 18px 0 6px;
-      color: var(--cyan);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    p, li {
-      color: var(--text-secondary);
-      font-size: 14.5px;
-      margin: 0 0 10px;
-    }
-
-    ul {
-      margin: 8px 0 4px;
-      padding-left: 18px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    strong {
-      color: #ffffff;
-      font-weight: 600;
-    }
-
-    /* Cuadrícula de características de privacidad */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-      margin-top: 14px;
-    }
-
-    .mini-glass {
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(255, 255, 255, 0.09);
-      border-radius: 16px;
-      padding: 16px 18px;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
-    }
-
-    .mini-title {
-      font-size: 13.5px;
-      font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 4px;
-    }
-
-    .mini-desc {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin: 0;
-    }
-
-    .tone-amber { color: var(--amber); }
-    .tone-cyan { color: var(--cyan); }
-
-    footer {
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 12.5px;
-      margin-top: 44px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.07);
-    }
-
-    a {
-      color: var(--cyan);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    /* Selector de idioma */
-    .lang-bar {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 6px;
-      margin: -14px auto 30px;
-    }
-
-    .lang-pill {
-      padding: 6px 13px;
-      border-radius: 11px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-muted);
-      text-decoration: none;
-      border: 1px solid transparent;
-      transition: all 0.2s ease;
-    }
-
-    .lang-pill:hover {
-      color: var(--text-primary);
-      border-color: var(--glass-border);
-    }
-
-    .lang-pill[aria-current="page"] {
-      color: var(--cyan);
-      background: rgba(56, 189, 248, 0.10);
-      border-color: rgba(56, 189, 248, 0.28);
-    }
-
-    /* Bloque de advertencia sobre red */
-    .net-note {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      background: rgba(251, 191, 36, 0.07);
-      border: 1px solid rgba(251, 191, 36, 0.22);
-      border-radius: 16px;
-      padding: 16px 18px;
-      margin-top: 16px;
-    }
-
-    .net-note .net-icon {
-      flex: 0 0 auto;
-      font-size: 18px;
-      line-height: 1.5;
-    }
-
-    .net-note .net-body {
-      flex: 1 1 auto;
-    }
-
-    .net-note p {
-      margin: 0 0 6px;
-    }
-
-    .net-note p:last-child {
-      margin-bottom: 0;
-    }
-
-    .net-note strong {
-      color: var(--amber);
-    }
-
-    .lang-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .lang-list li {
-      position: relative;
-      padding-left: 22px;
-    }
-
-    .lang-list li::before {
-      content: "▸";
-      position: absolute;
-      left: 4px;
-      color: var(--cyan);
-    }
-  
-.card{background:var(--glass-surface);border:1px solid var(--glass-border);border-radius:22px;padding:26px 24px;margin:0 0 18px;backdrop-filter:blur(24px)}
-.card h2{margin:0 0 10px;font-size:1.15rem} .card p{margin:0 0 10px;color:var(--text-secondary)}
-.card a{color:var(--cyan)} h1{text-align:center;margin:0 0 8px} .sub{text-align:center;color:var(--text-secondary);margin:0 0 30px}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quani · Soporte · Support</title>
+<meta name="description" content="Soporte de Quani · Finanzas Modernas. Support for Quani · Finanzas Modernas.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#04060c">
+<meta name="color-scheme" content="dark">
+<link rel="canonical" href="https://lasuitemusicalrm-ui.github.io/quani-legal/soporte.html">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Quani · Soporte · Support">
+<meta property="og:description" content="Soporte de Quani · Finanzas Modernas. Support for Quani · Finanzas Modernas.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://lasuitemusicalrm-ui.github.io/quani-legal/assets/quani-logo.png">
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-<div class="ambient-canvas"></div>
-<div class="shell">
-<h1>Soporte de Quani</h1>
-<p class="sub">Support · Soporte · Assistance</p>
-<div class="card"><h2>Escríbenos</h2><p>Para cualquier duda, problema o sugerencia sobre Quani, escribe a <a href="mailto:soporte.quani@gmail.com">soporte.quani@gmail.com</a>. Respondemos en el mismo idioma en el que nos escribas.</p><p><strong>Write to us</strong> at <a href="mailto:soporte.quani@gmail.com">soporte.quani@gmail.com</a>. We reply in the language you write in.</p></div>
-<div class="card"><h2>Preguntas frecuentes</h2>
-<p><strong>¿Dónde están mis datos?</strong> Solo en tu iPhone. Quani no tiene servidor propio ni cuentas de usuario.</p>
-<p><strong>¿Cómo hago una copia de seguridad?</strong> Más → Copia de seguridad: exporta un archivo JSON o CSV y guárdalo donde prefieras. Para restaurarlo usa la misma pantalla.</p>
-<p><strong>¿Cambié de iPhone, cómo recupero mis datos?</strong> Exporta la copia antes de cambiar de teléfono e impórtala en el nuevo desde Más → Copia de seguridad.</p>
-<p><strong>¿Qué es AsesorIA?</strong> Una conversación opcional con el modelo de Apple Intelligence, disponible solo en iPhone compatibles. El Asesor normal funciona en todos los iPhone y no necesita conexión.</p>
-<p><strong>Olvidé mi PIN.</strong> Como tus datos viven solo en tu iPhone y Quani no tiene servidor, nosotros no podemos ver ni restablecer tu PIN. Si activaste Face ID, puedes entrar con él. Si no, los intentos fallidos solo imponen esperas (nunca un bloqueo permanente), así que puedes seguir probando. Si de verdad no lo recuerdas, la única salida es borrar la app y volver a instalarla, y después restaurar tu copia de seguridad (Más → Copia de seguridad), que no incluye el PIN. Por eso te recomendamos exportar una copia de vez en cuando y activar Face ID.</p></div>
-<div class="card"><h2>Frequently asked questions</h2>
-<p><strong>Where is my data?</strong> Only on your iPhone. Quani has no server and no user accounts.</p>
-<p><strong>How do I back up?</strong> More → Backup: export a JSON or CSV file and store it wherever you like. Use the same screen to restore.</p>
-<p><strong>I got a new iPhone.</strong> Export a backup before switching and import it on the new phone from More → Backup.</p>
-<p><strong>What is AsesorIA?</strong> An optional conversation with Apple Intelligence's on-device model, on compatible iPhones only. The regular Advisor works on every iPhone, offline.</p><p><strong>I forgot my PIN.</strong> Your data lives only on your iPhone and Quani has no server, so we cannot see or reset your PIN. If you enabled Face ID you can use it to get in. Otherwise, failed attempts only add waiting time (never a permanent lock), so you can keep trying. If you truly cannot remember it, the only way out is to delete the app, reinstall it and restore your backup (More → Backup), which does not include the PIN. That is why we recommend exporting a backup now and then and enabling Face ID.</p></div>
-<div class="card"><p><a href="index.html">← Privacidad y términos · Privacy &amp; Terms</a></p></div>
-<p class="sub" style="margin-top:28px;font-size:.85rem">© 2026 La Suite Musical · Quani para iPhone</p>
+<div class="backdrop" aria-hidden="true"></div>
+<main class="page narrow">
+<header class="brand">
+<a href="index.html" aria-label="Quani · Finanzas Modernas"><picture><source srcset="assets/quani-logo.webp" type="image/webp"><img class="mark" src="assets/quani-logo.png" width="640" height="640" alt="Quani"></picture></a>
+<p class="wordmark"><b>Quani</b><i aria-hidden="true"></i><span>Finanzas Modernas</span></p>
+</header>
+<div class="hero">
+<h1>Soporte <span style="color:var(--ink-3);font-weight:450">· Support</span></h1>
+<p class="lead">Para cualquier duda, problema o sugerencia sobre Quani, escríbenos. Respondemos en el mismo idioma en el que nos escribas.</p>
+<p style="margin-top:20px"><a class="btn" href="mailto:soporte.quani@gmail.com">soporte.quani@gmail.com</a></p>
 </div>
+<div class="stack">
+<p class="langhead" id="es" lang="es">Español · Preguntas frecuentes</p>
+<section class="card" lang="es"><details><summary>¿Dónde están mis datos?</summary><div><p>Solo en tu iPhone, en una base de datos por perfil. Quani no tiene servidor propio ni cuentas de usuario; el nombre que escribes al empezar solo da nombre a tu perfil dentro del teléfono.</p></div></details><details><summary>¿Qué iPhone necesito?</summary><div><p>Quani funciona en iPhone con iOS 17 o posterior. AsesorIA y la lectura de tickets tienen requisitos adicionales (ver más abajo).</p></div></details><details><summary>¿Cómo hago una copia de seguridad?</summary><div><p>En <strong>Más → Copia de seguridad</strong> puedes exportar un archivo JSON con todo tu perfil (fotos incluidas) o un CSV con tus movimientos. Quani también guarda sola una copia al día dentro de la app (sin fotos). Para restaurar, usa esa misma pantalla.</p></div></details><details><summary>Cambié o perdí mi iPhone: ¿cómo recupero mis datos?</summary><div><p>Si activaste <strong>«Guardar mis perfiles en iCloud»</strong> (Más → Perfiles), instala Quani en el nuevo iPhone con el mismo Apple ID y elige <strong>«Recuperar desde iCloud»</strong> al empezar. Si no la activaste, importa un archivo exportado desde Más → Copia de seguridad.</p><p>Quani no tiene servidores, así que no puede recuperar datos de los que no existe una copia tuya.</p></div></details><details><summary>¿Qué es AsesorIA?</summary><div><p>Una conversación opcional con el modelo de Apple Intelligence, que se ejecuta en tu iPhone. Requiere iPhone 15 Pro o posterior, iOS 26 o posterior y Apple Intelligence activado. Leer tickets con la cámara requiere además iOS 27 o posterior. El Asesor normal funciona en todos los iPhone y sin conexión.</p></div></details><details><summary>Olvidé mi PIN</summary><div><p>Quani no recibe tu PIN, así que nadie puede recuperarlo por ti. Tras varios intentos fallidos la app te hace esperar unos minutos, pero nunca te bloquea para siempre. Si activaste Face ID, puedes desbloquear con él. Si no puedes entrar, escríbenos y te indicamos las opciones.</p></div></details><details><summary>¿Cómo borro mis datos?</summary><div><p>En <strong>Más → Perfiles</strong> puedes borrar un perfil (si tenía copia en iCloud, esa copia también se borra). Al desinstalar Quani se elimina todo lo guardado en el teléfono; los archivos que hayas exportado y tu iCloud no se tocan.</p></div></details><details><summary>¿En qué idiomas está Quani?</summary><div><p>Español, inglés, portugués, francés, alemán, italiano, chino simplificado y japonés. El español es el idioma de referencia; los demás están en versión Beta, en revisión por hablantes nativos.</p></div></details></section>
+<p class="langhead" id="en" lang="en">English · Frequently asked questions</p>
+<section class="card" lang="en"><p>For any question, problem or suggestion about Quani, write to <a href="mailto:soporte.quani@gmail.com">soporte.quani@gmail.com</a>. We reply in the language you write in.</p><hr><details><summary>Where is my data?</summary><div><p>Only on your iPhone, in one database per profile. Quani has no server of its own and no user accounts; the name you type at the start only names your profile inside the phone.</p></div></details><details><summary>Which iPhone do I need?</summary><div><p>Quani runs on iPhone with iOS 17 or later. AsesorIA and receipt reading have extra requirements (see below).</p></div></details><details><summary>How do I back up?</summary><div><p>In <strong>More → Backup</strong> you can export a JSON file with your whole profile (photos included) or a CSV of your transactions. Quani also keeps one copy a day inside the app (without photos). To restore, use the same screen.</p></div></details><details><summary>I changed or lost my iPhone: how do I get my data back?</summary><div><p>If you turned on <strong>“Save my profiles to iCloud”</strong> (More → Profiles), install Quani on the new iPhone with the same Apple ID and choose <strong>“Recover from iCloud”</strong> at the start. If you did not, import a file you exported from More → Backup.</p><p>Quani has no servers, so it cannot recover data for which you have no copy.</p></div></details><details><summary>What is AsesorIA?</summary><div><p>An optional conversation with Apple Intelligence's model, which runs on your iPhone. It requires iPhone 15 Pro or later, iOS 26 or later and Apple Intelligence turned on. Reading receipts with the camera also requires iOS 27 or later. The regular Advisor works on every iPhone, offline.</p></div></details><details><summary>I forgot my PIN</summary><div><p>Quani does not receive your PIN, so nobody can recover it for you. After several wrong attempts the app makes you wait a few minutes, but it never locks you out for good. If you turned on Face ID, you can unlock with it. If you cannot get in, write to us and we will explain the options.</p></div></details><details><summary>How do I delete my data?</summary><div><p>In <strong>More → Profiles</strong> you can delete a profile (if it had an iCloud copy, that copy is deleted too). Uninstalling Quani removes everything stored on the phone; files you exported and your iCloud are not touched.</p></div></details><details><summary>Which languages does Quani support?</summary><div><p>Spanish, English, Portuguese, French, German, Italian, Simplified Chinese and Japanese. Spanish is the reference language; the others are Beta versions under review by native speakers.</p></div></details></section>
+<section class="card"><p><a href="privacidad-y-terminos.html">Privacidad y Términos</a> · <a href="privacidad-y-terminos.en.html">Privacy &amp; Terms</a></p></section>
+</div>
+</main>
+<footer>
+<nav><a href="index.html">Inicio · Home</a><a href="privacidad-y-terminos.html">Privacidad y Términos</a><a href="mailto:soporte.quani@gmail.com">soporte.quani@gmail.com</a></nav>
+<p>© 2026 La Suite Musical · Quani para iPhone</p>
+</footer>
 </body>
 </html>
