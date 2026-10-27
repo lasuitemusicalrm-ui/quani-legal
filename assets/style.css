@@ -2,7 +2,7 @@
    Sin fuentes ni scripts externos: esta página promete no rastrear y no carga nada de terceros. */
 :root {
   color-scheme: dark;
-  --bg: #04060c;
+  --bg: #0a1224;       /* = tono de arriba del fondo: la barra de estado y el borde inferior de Safari lo toman */
   --ink: #f2f5fb;
   --ink-2: #b8c3d6;
   --ink-3: #8794ab;
@@ -19,7 +19,7 @@
 }
 
 * { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; background: var(--bg); }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { animation: none !important; transition: none !important; } }
 
 body {
@@ -38,12 +38,13 @@ body {
 
 /* Fondo: luz ambiente muy contenida + grano fino para que el negro se sienta material, no plano. */
 .backdrop {
-  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  /* Rebasa la pantalla por arriba y por abajo: sin franjas negras en la barra de estado ni bajo la barra de Safari. */
+  position: fixed; top: -140px; bottom: -140px; left: 0; right: 0; z-index: 0; pointer-events: none;
   background:
-    radial-gradient(60% 42% at 50% -6%, rgba(86, 140, 255, 0.26), transparent 70%),
+    radial-gradient(60% 38% at 50% 9%, rgba(86, 140, 255, 0.26), transparent 70%),
     radial-gradient(42% 36% at 100% 38%, rgba(130, 100, 255, 0.11), transparent 72%),
     radial-gradient(46% 38% at 0% 78%, rgba(40, 170, 255, 0.09), transparent 72%),
-    linear-gradient(180deg, #070b16 0%, #04060c 46%, #03050a 100%);
+    linear-gradient(180deg, #0a1224 0%, #070b18 46%, #060913 100%);
 }
 .backdrop::after {
   content: ""; position: absolute; inset: 0; opacity: 0.06; mix-blend-mode: overlay;
